@@ -46,7 +46,23 @@ class Rdm(Frame):
 		self.delete.pack()
 
 	def checked(self):
-		print(choice([1,2,3]))
+		# random number 
+		numbs = [1,2,3,4,5,6,7,8,9,10]
+
+		# create local variable to get input
+		numberuser = self.inputuser.get()
+		# convert to int type
+		yournumber = int(numberuser)
+
+		if yournumber == choice(numbs):
+			self.inputuser.delete(0, END)
+			self.inputuser.insert(0, ':) si\'ik lo\'os!')
+		elif yournumber > choice(numbs):
+			self.inputuser.insert(END, ' --> bo\'ot liu!')
+		elif yournumber < choice(numbs):
+			self.inputuser.insert(END, ' --> ki\'ik liu!')
+		elif yournumber in 'abcdefghijklmnopqrstuvwxyz':
+			self.inputuser.insert(END, ' --> laos numeru!')		
 
 	def delt(self):
 		self.inputuser.delete(0, END)
