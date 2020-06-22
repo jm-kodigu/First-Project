@@ -1,10 +1,11 @@
-from random import *
+from app import *
 
 root = Tk()
 
 root.title("Random JM")
+root.geometry("270x175")
 
 # object
-app = Random(master=root)
+app = Rdm(master=root)
 root["bg"] = "lightblue"
 root.mainloop()

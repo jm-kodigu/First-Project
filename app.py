@@ -1,8 +1,9 @@
 from tkinter import *
-import random as rdm
+from random import choice
+
 
 # template
-class Random(Frame):
+class Rdm(Frame):
 	# const __init__
 	def __init__(self,master=None):
 		# call const __init__ in superclass
@@ -30,5 +31,22 @@ class Random(Frame):
 		# input from user
 		self.inputuser = Entry(self)
 		self.inputuser["justify"] = "center"
-		self.inputuser["bg"] = "lightblue"
 		self.inputuser.pack()
+
+		# button confirm to verify
+		self.confirm = Button(self)
+		self.confirm["text"] = "konfirma"
+		self.confirm["bg"] = "green"
+		self.confirm["fg"] = "white"
+		self.confirm["command"] = self.checked
+		self.confirm.pack()
+
+		# button delete number of user
+		self.delete = Button(self, text="delete", fg="white", bg="red", command=self.delt)
+		self.delete.pack()
+
+	def checked(self):
+		print(choice([1,2,3]))
+
+	def delt(self):
+		self.inputuser.delete(0, END)
