@@ -10,7 +10,7 @@ class Rdm(Frame):
 		super().__init__(master)
 		# override 
 		self.master=master
-		self.pack()
+		self.grid(padx=30,pady=28)
 		# call method
 		self.all_here()
 
@@ -21,29 +21,35 @@ class Rdm(Frame):
 		self.index["text"] = "Jogu Sasik Numeru"
 		self.index["fg"] = "white"
 		self.index["bg"] = "lightblue"
-		self.index["font"] = ("fira code", 15)
-		self.index.pack()
+		self.index["font"] = ("fira code bold", 15)
+		self.index.grid(row=0,columnspan=2)
 
-		# separator
-		self.separator = Frame(self, height=4, bd=2, relief=GROOVE)
-		self.separator.pack(fill=X,expand=1)
+		self.index2 = Label(self)
+		self.index2["text"] = "husi 1 to 10!"
+		self.index2["fg"] = "black"
+		self.index2["bg"] = "lightblue"
+		self.index2["font"] = ("fira code semibold", 12)
+		self.index2.grid(row=1,columnspan=2)
 
 		# input from user
 		self.inputuser = Entry(self)
 		self.inputuser["justify"] = "center"
-		self.inputuser.pack()
+		self.inputuser.grid(row=3,columnspan=2,pady=9)
+		# default value
+		self.inputuser.delete(0, END)
+		self.inputuser.insert(0, '0')
 
 		# button confirm to verify
 		self.confirm = Button(self)
-		self.confirm["text"] = "konfirma"
+		self.confirm["text"] = "Konfirma"
 		self.confirm["bg"] = "green"
 		self.confirm["fg"] = "white"
 		self.confirm["command"] = self.checked
-		self.confirm.pack()
+		self.confirm.grid(row=4,column=0)
 
 		# button delete number of user
-		self.delete = Button(self, text="delete", fg="white", bg="red", command=self.delt)
-		self.delete.pack()
+		self.delete = Button(self, text="Hamos", fg="white", bg="red", command=self.delt)
+		self.delete.grid(row=4,column=1)
 
 	def checked(self):
 		try:
@@ -54,7 +60,7 @@ class Rdm(Frame):
 			numberuser = self.inputuser.get()
 			# convert to int type
 			yournumber = int(numberuser)
-			
+
 			if yournumber == choice(numbs):
 				self.inputuser.delete(0, END)
 				self.inputuser.insert(0, ':) si\'ik lo\'os!')
