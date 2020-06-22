@@ -68,7 +68,7 @@ class Rdm(Frame):
 				self.inputuser.insert(END, ' --> bo\'ot liu!')
 			elif yournumber < choice(numbs):
 				self.inputuser.insert(END, ' --> ki\'ik liu!')
-		except Exception as err:
+		except ValueError:
 			self.inputuser.insert(END, ' --> laos numeru!')
 
 	def delt(self):
