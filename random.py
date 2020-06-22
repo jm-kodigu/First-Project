@@ -32,11 +32,3 @@ class Random(Frame):
 		self.inputuser["justify"] = "center"
 		self.inputuser["bg"] = "lightblue"
 		self.inputuser.pack()
-
-
-root = Tk()
-root.title("Random JM")
-# object
-app = Random(master=root)
-root["bg"] = "lightblue"
-root.mainloop()
