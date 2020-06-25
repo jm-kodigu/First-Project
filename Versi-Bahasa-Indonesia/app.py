@@ -19,14 +19,14 @@ class Rdm(Frame):
 	def all_here(self):
 		# create label widget inside the object attribute
 		self.index = Label(self)
-		self.index["text"] = "Jogu Sasik Numeru"
+		self.index["text"] = "Game Menebak Angka"
 		self.index["fg"] = "white"
 		self.index["bg"] = "lightblue"
 		self.index["font"] = ("fira code bold", 15)
 		self.index.pack()
 
 		self.index2 = Label(self)
-		self.index2["text"] = "husi 1 to 10!"
+		self.index2["text"] = "dari 1 sampai 10!"
 		self.index2["fg"] = "black"
 		self.index2["bg"] = "lightblue"
 		self.index2["font"] = ("fira code semibold", 12)
@@ -46,14 +46,14 @@ class Rdm(Frame):
 
 		# button confirm to verify
 		self.confirm = Button(bp)
-		self.confirm["text"] = "Konfirma"
+		self.confirm["text"] = "Konfirmasih"
 		self.confirm["bg"] = "green"
 		self.confirm["fg"] = "white"
 		self.confirm["command"] = self.checked
 		self.confirm.pack(side=LEFT,padx=5,pady=10)
 
 		# button delete number of user
-		self.delete = Button(bp, text="Hamos", fg="white", bg="red", command=self.delt)
+		self.delete = Button(bp, text="Hapus", fg="white", bg="red", command=self.delt)
 		self.delete.pack(side=LEFT,padx=5,pady=10)
 
 
@@ -69,13 +69,13 @@ class Rdm(Frame):
 
 			if yournumber == choice(numbs):
 				self.inputuser.delete(0, END)
-				self.inputuser.insert(0, ':) si\'ik lo\'os!')
+				self.inputuser.insert(0, ':) anda benar!')
 			elif yournumber > choice(numbs):
-				self.inputuser.insert(END, ' --> bo\'ot liu!')
+				self.inputuser.insert(END, ' --> terlalu BESAR!')
 			elif yournumber < choice(numbs):
-				self.inputuser.insert(END, ' --> ki\'ik liu!')
+				self.inputuser.insert(END, ' --> terlalu RENDAH!')
 		except ValueError:
-			self.inputuser.insert(END, ' --> laos numeru!')
+			self.inputuser.insert(END, ' --> bukan angka!')
 
 	def delt(self):
 		self.inputuser.delete(0, END)
