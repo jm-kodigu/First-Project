@@ -10,7 +10,8 @@ class Rdm(Frame):
 		super().__init__(master)
 		# override 
 		self.master=master
-		self.grid(padx=30,pady=28)
+		self.pack()
+		self.config(bg="lightblue")
 		# call method
 		self.all_here()
 
@@ -22,34 +23,39 @@ class Rdm(Frame):
 		self.index["fg"] = "white"
 		self.index["bg"] = "lightblue"
 		self.index["font"] = ("fira code bold", 15)
-		self.index.grid(row=0,columnspan=2)
+		self.index.pack()
 
 		self.index2 = Label(self)
 		self.index2["text"] = "husi 1 to 10!"
 		self.index2["fg"] = "black"
 		self.index2["bg"] = "lightblue"
 		self.index2["font"] = ("fira code semibold", 12)
-		self.index2.grid(row=1,columnspan=2)
-
+		self.index2.pack()
+	
 		# input from user
 		self.inputuser = Entry(self)
 		self.inputuser["justify"] = "center"
-		self.inputuser.grid(row=3,columnspan=2,pady=9)
+		self.inputuser.pack()
 		# default value
 		self.inputuser.delete(0, END)
 		self.inputuser.insert(0, '0')
 
+		# bottom paned
+		bp = Frame(self, bg="lightblue")
+		bp.pack(side=BOTTOM)
+
 		# button confirm to verify
-		self.confirm = Button(self)
+		self.confirm = Button(bp)
 		self.confirm["text"] = "Konfirma"
 		self.confirm["bg"] = "green"
 		self.confirm["fg"] = "white"
 		self.confirm["command"] = self.checked
-		self.confirm.grid(row=4,column=0)
+		self.confirm.pack(side=LEFT,padx=5,pady=10)
 
 		# button delete number of user
-		self.delete = Button(self, text="Hamos", fg="white", bg="red", command=self.delt)
-		self.delete.grid(row=4,column=1)
+		self.delete = Button(bp, text="Hamos", fg="white", bg="red", command=self.delt)
+		self.delete.pack(side=LEFT,padx=5,pady=10)
+
 
 	def checked(self):
 		try:
