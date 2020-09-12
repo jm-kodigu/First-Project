@@ -69,18 +69,30 @@ class App(Frame):
 
 		# end of all here user need
 
+		# copyright info
+		self.bottom = Frame(self, bg="white")
+		self.bottom.pack(side=BOTTOM, fill=X)
+
+		jm_kodigu = Label(self.bottom)
+		jm_kodigu["text"] = "Copyright 2020. Built by JM-Kodigu"
+		jm_kodigu["font"] = ("Cooper Black",11)
+		jm_kodigu["bg"] = "white"
+		jm_kodigu.pack()
+		# end of copyright info
+
 	def tested_number(self):
 		try:
 			a = [0,1,2,3,4,5,6,7,8,9,10]
 			your_number = int(self.user_number.get())
 			if( your_number == choice(a) ):
-				self.result.config(text="You Won. you very lucky today!", fg="blue")
+				self.result.config(text=f"You Won. you very lucky today with number {your_number}!", fg="blue")
 			elif( your_number > choice(a) ):
 				self.result.config(text="your number is a BIG!", fg="red")
 			elif( your_number < choice(a) ):
 				self.result.config(text="your number is a SMALL!", fg="blue")
-			else:
+			elif( not your_number in a):
 				self.result.config(text="This is not a number!", fg="white", bg="red")
+			self.user_number.delete(0, END)
 		except Exception as err:
 			print("error :", err)
 
