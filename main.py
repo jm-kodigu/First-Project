@@ -20,7 +20,7 @@ class App(Frame):
 		self.info = Toplevel()
 		self.info.geometry("240x100")
 
-		self.m = Message(self.info, text="This is program built with Tk 8.5 and Random Choice", fg="blue")
+		self.m = Message(self.info, text="This is program built with Tk 8.5 and Random Choice module.", fg="blue")
 		self.m.pack()
 
 		self.dismiss = Button(self.info, text="DISMISS", bg="red", fg="white", command=self.info.destroy)
