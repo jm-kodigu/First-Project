@@ -17,6 +17,7 @@ class App(Frame):
 		self.all_here()
 
 	def all_here(self):
+		# this is info for project
 		self.info = Toplevel()
 		self.info.geometry("240x100")
 
@@ -25,8 +26,21 @@ class App(Frame):
 
 		self.dismiss = Button(self.info, text="DISMISS", bg="red", fg="white", command=self.info.destroy)
 		self.dismiss.pack()
+		# end of this is info for project
 
+		# all here user need
+		self.heading = Label(self)
+		self.heading["text"] = "Random JM"
+		self.heading["fg"] = "blue"
+		self.heading["font"] = ("Cooper Black",30)
+		self.heading.pack(pady=20)
 
+		self.info_here = Label(self)
+		self.info_here["text"] = "\"your lucky is good to choice right number in application.\""
+		self.info_here["font"] = ("Times New Roman Italic",12)
+		self.info_here.pack(pady=5)
+
+		# end of all here user need
 
 root = Tk()
 root.iconbitmap("icon.ico")
