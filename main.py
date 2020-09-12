@@ -69,36 +69,52 @@ class App(Frame):
 
 		# end of all here user need
 
-		# copyright info
+		# Hardware info
 		self.bottom = Frame(self, bg="white")
 		self.bottom.pack(side=BOTTOM, fill=X)
 
-		jm_kodigu = Label(self.bottom)
-		jm_kodigu["text"] = "Copyright 2020. Built by JM-Kodigu"
-		jm_kodigu["font"] = ("Cooper Black",11)
-		jm_kodigu["bg"] = "white"
-		jm_kodigu.pack()
-		# end of copyright info
+		self.hardware = Label(self.bottom)
+		self.hardware["text"] = ":-)"
+		self.hardware["font"] = ("Cooper Black",11)
+		self.hardware["bg"] = "white"
+		self.hardware["anchor"] = SE
+		self.hardware.pack()
+		# end of Hardware info
+
+		# event & bindings
+		self.master.bind("<Enter>", self.mouse_in)
+		self.master.bind("<Leave>", self.mouse_out)
+		self.master.bind("<Key>", self.keyboard_action)
+		# end of event & bindings
 
 	def tested_number(self):
 		try:
 			a = [0,1,2,3,4,5,6,7,8,9,10]
 			your_number = int(self.user_number.get())
 			if( your_number == choice(a) ):
-				self.result.config(text=f"You Won. you very lucky today with number {your_number}!", fg="blue")
+				self.result.config(text=f"You Won. you very lucky today with number {your_number}!", fg="black", bg="yellow")
 			elif( your_number > choice(a) ):
-				self.result.config(text="your number is a BIG!", fg="red")
+				self.result.config(text="your number is a BIG!", fg="red", bg="white")
 			elif( your_number < choice(a) ):
-				self.result.config(text="your number is a SMALL!", fg="blue")
-			elif( not your_number in a):
-				self.result.config(text="This is not a number!", fg="white", bg="red")
+				self.result.config(text="your number is a SMALL!", fg="blue", bg="white")
 			self.user_number.delete(0, END)
 		except Exception as err:
 			print("error :", err)
+			self.result.config(text="This is not a number!", fg="white", bg="red")
+			self.user_number.delete(0, END)
 
 	def deleted(self):
 		self.user_number.delete(0, END)
 		self.result.config(text="Info Here!", fg="black", bg="white")
+
+	def mouse_in(self,event):
+		self.hardware.config(text="Mouse In", bg="blue", fg="white")
+
+	def mouse_out(self,event):
+		self.hardware.config(text="Mouse Out", bg="pink", fg="white")
+
+	def keyboard_action(self,event):
+		self.hardware.config(text=f"character :  {event.keysym}", bg="black", fg="white")
 
 root = Tk()
 root.iconbitmap("icon.ico")
