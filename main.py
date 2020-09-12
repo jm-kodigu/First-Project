@@ -40,6 +40,11 @@ class App(Frame):
 		self.info_here["font"] = ("Times New Roman Italic",12)
 		self.info_here.pack(pady=5)
 
+		# promt to user insert a number
+		self.user_number = Entry(self, justify=CENTER, width=15)
+		self.user_number.pack(pady=10)
+		# end of prompt to user insert a number
+
 		# end of all here user need
 
 root = Tk()
