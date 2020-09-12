@@ -8,3 +8,19 @@ author : https://github.com/jm-kodigu/
 from tkinter import *
 from tkinter import messagebox
 from random import choice 
+
+class App(Frame):
+
+	def __init__(self,master=None):
+		super().__init__(master)
+		self.pack()
+
+
+root = Tk()
+root.iconbitmap("icon.ico")
+root.title("JM-Kodigu")
+root.geometry("600x400")
+
+app = App(master=root)
+
+root.mainloop()
