@@ -14,6 +14,10 @@ class App(Frame):
 	def __init__(self,master=None):
 		super().__init__(master)
 		self.pack()
+		self.all_here()
+
+	def all_here(self):
+		pass
 
 
 root = Tk()
