@@ -36,7 +36,7 @@ class App(Frame):
 		self.heading.pack(pady=20)
 
 		self.info_here = Label(self)
-		self.info_here["text"] = "\"your lucky is good to choice right number in application.\""
+		self.info_here["text"] = "\"your lucky is good to choice right number in application.\"\n\nnumber start by 0 to 10!"
 		self.info_here["font"] = ("Times New Roman Italic",12)
 		self.info_here.pack(pady=5)
 
@@ -55,6 +55,11 @@ class App(Frame):
 		self.b2 = Button(self.button_frame, text="Delete", bg="red", fg="white", command=self.deleted)
 		self.b2.grid(row=0, column=1, padx=8)
 		# end of button here
+
+		self.result = Label(self)
+		self.result["text"] = "Info Here!"
+		self.result["font"] = ("Fira Code Regular",12)
+		self.result.pack(pady=20)
 
 		# end of all here user need
 
