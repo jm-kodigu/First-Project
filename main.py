@@ -45,7 +45,36 @@ class App(Frame):
 		self.user_number.pack(pady=10)
 		# end of prompt to user insert a number
 
+		# button here
+		self.button_frame = Frame(self)
+		self.button_frame.pack(pady=8)
+
+		self.b1 = Button(self.button_frame, text="Insert", bg="green", fg="white", command=self.tested_number)
+		self.b1.grid(row=0, column=0, padx=8)
+
+		self.b2 = Button(self.button_frame, text="Delete", bg="red", fg="white", command=self.deleted)
+		self.b2.grid(row=0, column=1, padx=8)
+		# end of button here
+
 		# end of all here user need
+
+	def tested_number(self):
+		try:
+			a = [0,1,2,3,4,5,6,7,8,9,10]
+			your_number = int(self.user_number.get())
+			if( your_number == choice(a) ):
+				print("Good Choice!")
+			elif( your_number > choice(a) ):
+				print("Your number is a big!")
+			elif( your_number < choice(a) ):
+				print("your number is a small!")
+			else:
+				print("not a number!")
+		except Exception as err:
+			print("error :", err)
+
+	def deleted(self):
+		self.user_number.delete(0, END)
 
 root = Tk()
 root.iconbitmap("icon.ico")
